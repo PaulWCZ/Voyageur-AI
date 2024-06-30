@@ -65,7 +65,8 @@ const Vacation = () => {
                         ]
                       }
                     ]
-                  }`,
+                  }
+                  Only json, no other word`,
       },
     ];
 
@@ -98,7 +99,9 @@ const Vacation = () => {
 
         {!recommendations && !loading && step === 0 && (
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4">What type of vacation do you prefer?</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              What type of vacation do you prefer?
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl">
               <CardOption
                 label="Relaxing"
@@ -120,16 +123,27 @@ const Vacation = () => {
               />
             </div>
             <div className="mt-4">
-              <button className="btn btn-primary" onClick={handleNext}>Next</button>
+              <button className="btn btn-primary" onClick={handleNext}>
+                Next
+              </button>
             </div>
           </div>
         )}
 
         {!recommendations && !loading && step === 1 && (
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4">What type of landscape do you prefer?</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              What type of landscape do you prefer?
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl">
-              {["Mountain", "Sea", "City", "Countryside", "Forest", "Desert"].map((landscape) => (
+              {[
+                "Mountain",
+                "Sea",
+                "City",
+                "Countryside",
+                "Forest",
+                "Desert",
+              ].map((landscape) => (
                 <CardOption
                   key={landscape}
                   label={landscape}
@@ -140,20 +154,32 @@ const Vacation = () => {
               ))}
             </div>
             <div className="mt-4 flex justify-between w-full max-w-3xl">
-              <button className="btn" onClick={handlePrev}>Previous</button>
-              <button className="btn btn-primary" onClick={handleNext}>Next</button>
+              <button className="btn" onClick={handlePrev}>
+                Previous
+              </button>
+              <button className="btn btn-primary" onClick={handleNext}>
+                Next
+              </button>
             </div>
           </div>
         )}
 
         {!recommendations && !loading && step === 2 && (
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4">What is the maximum flight duration?</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              What is the maximum flight duration?
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl">
               {["<2", "2-5", "5-10", ">10"].map((duration) => (
                 <CardOption
                   key={duration}
-                  label={`${duration === "<2" ? "Less than 2" : duration === ">10" ? "More than 10" : duration} hours`}
+                  label={`${
+                    duration === "<2"
+                      ? "Less than 2"
+                      : duration === ">10"
+                      ? "More than 10"
+                      : duration
+                  } hours`}
                   value={duration}
                   onClick={(value) => handleCardClick("flightDuration", value)}
                   selected={preferences.flightDuration === duration}
@@ -161,8 +187,12 @@ const Vacation = () => {
               ))}
             </div>
             <div className="mt-4 flex justify-between w-full max-w-3xl">
-              <button className="btn" onClick={handlePrev}>Previous</button>
-              <button className="btn btn-primary" onClick={handleNext}>Next</button>
+              <button className="btn" onClick={handlePrev}>
+                Previous
+              </button>
+              <button className="btn btn-primary" onClick={handleNext}>
+                Next
+              </button>
             </div>
           </div>
         )}
@@ -171,26 +201,40 @@ const Vacation = () => {
           <div className="flex flex-col items-center">
             <h2 className="text-2xl font-bold mb-4">What is your budget?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl">
-              {["<1000", "1000€-3000€", "3000€-5000€", ">5000"].map((budget) => (
-                <CardOption
-                  key={budget}
-                  label={`${budget === "<1000" ? "Less than 1000€" : budget === ">5000" ? "More than 5000€" : budget}`}
-                  value={budget}
-                  onClick={(value) => handleCardClick("budget", value)}
-                  selected={preferences.budget === budget}
-                />
-              ))}
+              {["<1000", "1000€-3000€", "3000€-5000€", ">5000"].map(
+                (budget) => (
+                  <CardOption
+                    key={budget}
+                    label={`${
+                      budget === "<1000"
+                        ? "Less than 1000€"
+                        : budget === ">5000"
+                        ? "More than 5000€"
+                        : budget
+                    }`}
+                    value={budget}
+                    onClick={(value) => handleCardClick("budget", value)}
+                    selected={preferences.budget === budget}
+                  />
+                )
+              )}
             </div>
             <div className="mt-4 flex justify-between w-full max-w-3xl">
-              <button className="btn" onClick={handlePrev}>Previous</button>
-              <button className="btn btn-primary" onClick={handleNext}>Next</button>
+              <button className="btn" onClick={handlePrev}>
+                Previous
+              </button>
+              <button className="btn btn-primary" onClick={handleNext}>
+                Next
+              </button>
             </div>
           </div>
         )}
 
         {!recommendations && !loading && step === 4 && (
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4">What are the dates of your trip?</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              What are the dates of your trip?
+            </h2>
             <div className="w-full max-w-3xl">
               <label className="block mb-2">
                 Start Date:
@@ -213,8 +257,12 @@ const Vacation = () => {
                 />
               </label>
               <div className="mt-4 flex justify-between">
-                <button className="btn" onClick={handlePrev}>Previous</button>
-                <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+                <button className="btn" onClick={handlePrev}>
+                  Previous
+                </button>
+                <button className="btn btn-primary" onClick={handleSubmit}>
+                  Submit
+                </button>
               </div>
             </div>
           </div>
@@ -222,9 +270,14 @@ const Vacation = () => {
 
         {recommendations && (
           <div className="mt-8">
-            <h2 className="text-3xl font-bold mb-4 text-center">Travel Recommendations</h2>
+            <h2 className="text-3xl font-bold mb-4 text-center">
+              Travel Recommendations
+            </h2>
             {recommendations.destinations.map((destination, index) => (
-              <div key={index} className="mb-6 bg-base-100 shadow-md p-4 rounded-md">
+              <div
+                key={index}
+                className="mb-6 bg-base-100 shadow-md p-4 rounded-md"
+              >
                 <h3 className="text-xl font-bold">{destination.name}</h3>
                 <p>{destination.description}</p>
                 <h4 className="font-semibold mt-2">Activities:</h4>
@@ -237,7 +290,8 @@ const Vacation = () => {
                 <ul>
                   {destination.hotels.map((hotel, idx) => (
                     <li key={idx}>
-                      <strong>{hotel.name}</strong>: {hotel.description} - {hotel.price}
+                      <strong>{hotel.name}</strong>: {hotel.description} -{" "}
+                      {hotel.price}
                     </li>
                   ))}
                 </ul>
@@ -245,10 +299,18 @@ const Vacation = () => {
                 <ul>
                   {destination.restaurants.map((restaurant, idx) => (
                     <li key={idx}>
-                      <strong>{restaurant.name}</strong>: {restaurant.description} - {restaurant.price}
+                      <strong>{restaurant.name}</strong>:{" "}
+                      {restaurant.description} - {restaurant.price}
                     </li>
                   ))}
                 </ul>
+                <div className="w-full flex justify-center mt-2.5">
+                <button
+                  className="btn btn-primary text-white"
+                >
+                  Book
+                </button>
+                </div>
               </div>
             ))}
           </div>
